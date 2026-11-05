@@ -1,46 +1,45 @@
 export const footerData = {
   brand: {
-    name: 'FollowOn',
-    tagline: 'The Digital Clubhouse for Rangers Supporters',
-    description: 'An independent digital supporters platform celebrating the pride, passion, and storied history of Rangers Football Club.'
+    name: 'FOLLOWON',
+    description: 'Bringing Rangers supporters together through conversations, opinions and shared passion for football.'
   },
-  columns: [
-    {
-      title: 'Platform',
-      links: [
-        { label: 'Matchday Feed', href: '#community' },
-        { label: 'Player Ratings', href: '#ratings' },
-        { label: 'Polls & Debates', href: '#polls' },
-        { label: 'Trivia Quizzes', href: '#quizzes' },
-        { label: 'Leaderboard', href: '#leaderboard' }
-      ]
-    },
-    {
-      title: 'Community',
-      links: [
-        { label: 'Global Fan Clubs', href: '#community' },
-        { label: 'Supporters Charter', href: '#about' },
-        { label: 'Competitions', href: '#competitions' },
-        { label: 'Matchday Guidelines', href: '#benefits' }
-      ]
-    },
-    {
-      title: 'Legal & Info',
-      links: [
-        { label: 'Privacy Policy', href: '#hero' },
-        { label: 'Terms of Service', href: '#hero' },
-        { label: 'Community Standards', href: '#about' },
-        { label: 'Contact Support', href: '#hero' }
-      ]
-    }
-  ],
   socials: [
-    { label: 'X (Twitter)', href: 'https://twitter.com' },
-    { label: 'Instagram', href: 'https://instagram.com' },
-    { label: 'YouTube', href: 'https://youtube.com' },
-    { label: 'Discord', href: 'https://discord.com' }
+    { id: 'facebook', label: 'Facebook' },
+    { id: 'instagram', label: 'Instagram' },
+    { id: 'youtube', label: 'YouTube' },
+    { id: 'x', label: 'X' }
   ],
-  disclaimer: 'FollowOn is an independent fan community concept. Not an official product of or affiliated with The Rangers Football Club Ltd.',
-  copyright: '2026 FollowOn Digital Community. All rights reserved.'
+  exploreColumn: {
+    title: 'Explore',
+    links: [
+      { label: 'Home', targetId: 'hero' },
+      { label: 'About FollowOn', targetId: 'about' },
+      { label: 'Community', targetId: 'community' },
+      { label: 'Features', targetId: 'polls' }
+    ]
+  },
+  communityColumn: {
+    title: 'Community',
+    links: [
+      { label: 'Polls & Debates', targetId: 'polls' },
+      { label: 'Player Ratings', targetId: 'ratings' },
+      { label: 'Quizzes', targetId: 'quizzes' },
+      { label: 'Leaderboard', targetId: 'leaderboard' }
+    ]
+  },
+  touchColumn: {
+    title: 'Get in Touch',
+    items: [
+      { id: 'contact', label: 'Contact Us', type: 'mail', modalTitle: 'Contact Us', modalDesc: 'Send a message to the FollowOn team.' },
+      { id: 'email', label: 'Email Placeholder', type: 'mail', modalTitle: 'Email Support', modalDesc: 'Reach our team directly at contact@followon.com' }
+    ]
+  },
+  legalColumn: {
+    title: 'Legal',
+    items: [
+      { id: 'privacy', label: 'Privacy Policy', type: 'doc', modalTitle: 'Privacy Policy', modalDesc: 'Our commitment to protecting supporter data and privacy.' },
+      { id: 'terms', label: 'Terms & Conditions', type: 'scale', modalTitle: 'Terms & Conditions', modalDesc: 'Community rules and platform terms of service.' }
+    ]
+  },
+  copyright: '© 2026 FollowOn. All rights reserved.'
 }
-
