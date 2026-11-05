@@ -36,7 +36,7 @@ export const Home = () => {
   }
 
   return (
-    <div className="min-h-screen bg-navy-deep text-white flex flex-col selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-navy-deep text-white flex flex-col selection:bg-blue-600 selection:text-white overflow-x-hidden w-full">
       <AppLoader />
       <Header onOpenDemo={handleOpenDemo} />
 

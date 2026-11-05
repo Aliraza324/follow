@@ -39,7 +39,7 @@ export const PollsSection = ({ onOpenDemo }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 mb-3 whitespace-nowrap"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 mb-3 md:whitespace-nowrap"
           >
             {performanceRatingsData.headlinePart1}{' '}
             <span className="text-primary">{performanceRatingsData.headlinePart2}</span>
@@ -68,9 +68,9 @@ export const PollsSection = ({ onOpenDemo }) => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 onMouseEnter={() => setHoveredCard(player.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-md flex items-stretch h-[140px] sm:h-[155px] transition-all duration-300 group"
+                className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-md flex items-stretch h-[135px] sm:h-[155px] transition-all duration-300 group w-full"
               >
-                <div className="w-[38%] sm:w-[40%] h-full relative shrink-0 overflow-hidden bg-slate-100">
+                <div className="w-[36%] sm:w-[40%] h-full relative shrink-0 overflow-hidden bg-slate-100">
                   <img
                     src={player.image}
                     alt={player.name}
@@ -78,7 +78,7 @@ export const PollsSection = ({ onOpenDemo }) => {
                   />
 
                   <svg
-                    className="absolute top-0 right-0 bottom-0 h-full w-8 sm:w-10 text-white fill-current pointer-events-none"
+                    className="absolute top-0 right-0 bottom-0 h-full w-7 sm:w-10 text-white fill-current pointer-events-none"
                     viewBox="0 0 40 100"
                     preserveAspectRatio="none"
                   >
@@ -86,7 +86,7 @@ export const PollsSection = ({ onOpenDemo }) => {
                   </svg>
 
                   <svg
-                    className="absolute top-0 right-0 bottom-0 h-full w-8 sm:w-10 pointer-events-none"
+                    className="absolute top-0 right-0 bottom-0 h-full w-7 sm:w-10 pointer-events-none"
                     viewBox="0 0 40 100"
                     preserveAspectRatio="none"
                   >
@@ -94,7 +94,7 @@ export const PollsSection = ({ onOpenDemo }) => {
                   </svg>
                 </div>
 
-                <div className="flex-1 py-3 px-4 sm:px-6 flex flex-col justify-center">
+                <div className="flex-1 min-w-0 py-2.5 px-3 sm:px-6 flex flex-col justify-center">
                   <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-0.5 tracking-tight group-hover:text-primary transition-colors leading-tight">
                     {player.name}
                   </h3>

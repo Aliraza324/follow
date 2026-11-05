@@ -31,7 +31,7 @@ export const QuizzesSection = ({ onOpenDemo }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 mb-3 whitespace-nowrap"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 mb-3 md:whitespace-nowrap"
           >
             {fanExperiencesData.headlinePart1}{' '}
             <span className="text-primary">{fanExperiencesData.headlinePart2}</span>
@@ -48,7 +48,7 @@ export const QuizzesSection = ({ onOpenDemo }) => {
           </motion.p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7 mb-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-7 mb-10 w-full">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -56,9 +56,9 @@ export const QuizzesSection = ({ onOpenDemo }) => {
             transition={{ duration: 0.6, delay: 0.3 }}
             onMouseEnter={() => setHoveredCard('giveaway')}
             onMouseLeave={() => setHoveredCard(null)}
-            className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-md flex items-stretch h-[140px] sm:h-[155px] transition-all duration-300 group"
+            className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-md flex items-stretch h-[135px] sm:h-[155px] transition-all duration-300 group w-full"
           >
-            <div className="w-[38%] sm:w-[40%] h-full relative shrink-0 overflow-hidden bg-slate-100">
+            <div className="w-[36%] sm:w-[40%] h-full relative shrink-0 overflow-hidden bg-slate-100">
               <img
                 src={giveawayImg}
                 alt="Rangers Fan Giveaway"
@@ -66,7 +66,7 @@ export const QuizzesSection = ({ onOpenDemo }) => {
               />
 
               <svg
-                className="absolute top-0 right-0 bottom-0 h-full w-8 sm:w-10 text-white fill-current pointer-events-none"
+                className="absolute top-0 right-0 bottom-0 h-full w-7 sm:w-10 text-white fill-current pointer-events-none"
                 viewBox="0 0 40 100"
                 preserveAspectRatio="none"
               >
@@ -74,7 +74,7 @@ export const QuizzesSection = ({ onOpenDemo }) => {
               </svg>
 
               <svg
-                className="absolute top-0 right-0 bottom-0 h-full w-8 sm:w-10 pointer-events-none"
+                className="absolute top-0 right-0 bottom-0 h-full w-7 sm:w-10 pointer-events-none"
                 viewBox="0 0 40 100"
                 preserveAspectRatio="none"
               >
@@ -82,12 +82,12 @@ export const QuizzesSection = ({ onOpenDemo }) => {
               </svg>
             </div>
 
-            <div className="flex-1 py-3 px-4 sm:px-6 flex flex-col justify-center">
-              <div className="flex items-center justify-between gap-2 mb-1.5">
-                <div className="w-7 h-7 rounded-lg bg-blue-100/90 flex items-center justify-center text-primary shrink-0">
+            <div className="flex-1 min-w-0 py-2.5 px-3 sm:px-6 flex flex-col justify-center">
+              <div className="flex items-center justify-between gap-1.5 mb-1 sm:mb-1.5">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-blue-100/90 flex items-center justify-center text-primary shrink-0">
                   <svg
-                    width="17"
-                    height="17"
+                    width="15"
+                    height="15"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -103,16 +103,16 @@ export const QuizzesSection = ({ onOpenDemo }) => {
                   </svg>
                 </div>
 
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200/60">
+                <span className="px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200/60 shrink-0 whitespace-nowrap">
                   {fanExperiencesData.cards[0].badge}
                 </span>
               </div>
 
-              <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight mb-1 tracking-tight group-hover:text-primary transition-colors font-semibold">
+              <h3 className="text-sm sm:text-lg font-bold text-slate-900 leading-tight mb-0.5 tracking-tight group-hover:text-primary transition-colors">
                 {fanExperiencesData.cards[0].title}
               </h3>
 
-              <p className="text-xs text-slate-500 font-medium leading-tight">
+              <p className="text-[11px] sm:text-xs text-slate-500 font-medium leading-tight">
                 {fanExperiencesData.cards[0].subtitle}
               </p>
             </div>
@@ -125,9 +125,9 @@ export const QuizzesSection = ({ onOpenDemo }) => {
             transition={{ duration: 0.6, delay: 0.4 }}
             onMouseEnter={() => setHoveredCard('challenge')}
             onMouseLeave={() => setHoveredCard(null)}
-            className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-md flex items-stretch h-[140px] sm:h-[155px] transition-all duration-300 group"
+            className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-md flex items-stretch h-[135px] sm:h-[155px] transition-all duration-300 group w-full"
           >
-            <div className="w-[38%] sm:w-[40%] h-full relative shrink-0 overflow-hidden bg-slate-100">
+            <div className="w-[36%] sm:w-[40%] h-full relative shrink-0 overflow-hidden bg-slate-100">
               <img
                 src={trophyImg}
                 alt="Supporter Challenge Trophy"
@@ -135,7 +135,7 @@ export const QuizzesSection = ({ onOpenDemo }) => {
               />
 
               <svg
-                className="absolute top-0 right-0 bottom-0 h-full w-8 sm:w-10 text-white fill-current pointer-events-none"
+                className="absolute top-0 right-0 bottom-0 h-full w-7 sm:w-10 text-white fill-current pointer-events-none"
                 viewBox="0 0 40 100"
                 preserveAspectRatio="none"
               >
@@ -143,7 +143,7 @@ export const QuizzesSection = ({ onOpenDemo }) => {
               </svg>
 
               <svg
-                className="absolute top-0 right-0 bottom-0 h-full w-8 sm:w-10 pointer-events-none"
+                className="absolute top-0 right-0 bottom-0 h-full w-7 sm:w-10 pointer-events-none"
                 viewBox="0 0 40 100"
                 preserveAspectRatio="none"
               >
@@ -151,22 +151,22 @@ export const QuizzesSection = ({ onOpenDemo }) => {
               </svg>
             </div>
 
-            <div className="flex-1 py-3 px-4 sm:px-6 flex flex-col justify-center">
-              <div className="flex items-center justify-between gap-2 mb-1.5">
-                <div className="w-7 h-7 rounded-lg bg-blue-100/90 flex items-center justify-center text-primary shrink-0">
-                  <TrophyAnimatedIcon isHovered={hoveredCard === 'challenge'} size={18} className="text-primary" />
+            <div className="flex-1 min-w-0 py-2.5 px-3 sm:px-6 flex flex-col justify-center">
+              <div className="flex items-center justify-between gap-1.5 mb-1 sm:mb-1.5">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-blue-100/90 flex items-center justify-center text-primary shrink-0">
+                  <TrophyAnimatedIcon isHovered={hoveredCard === 'challenge'} size={16} className="text-primary" />
                 </div>
 
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200/60">
+                <span className="px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200/60 shrink-0 whitespace-nowrap">
                   {fanExperiencesData.cards[1].badge}
                 </span>
               </div>
 
-              <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight mb-1 tracking-tight group-hover:text-primary transition-colors font-semibold">
+              <h3 className="text-sm sm:text-lg font-bold text-slate-900 leading-tight mb-0.5 tracking-tight group-hover:text-primary transition-colors">
                 {fanExperiencesData.cards[1].title}
               </h3>
 
-              <p className="text-xs text-slate-500 font-medium leading-tight">
+              <p className="text-[11px] sm:text-xs text-slate-500 font-medium leading-tight">
                 {fanExperiencesData.cards[1].subtitle}
               </p>
             </div>

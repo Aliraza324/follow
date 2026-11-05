@@ -105,7 +105,7 @@ export const Header = ({ onOpenDemo }) => {
       </div>
 
       {mobileMenuOpen && (
-        <div className="sm:hidden bg-white border-b border-slate-200 shadow-xl px-6 py-5">
+        <div className="md:hidden bg-white border-b border-slate-200 shadow-xl px-6 py-5">
           <div className="flex flex-col gap-2">
             {navigationData.links.map((link) => {
               const isActive = activeSection === link.id
