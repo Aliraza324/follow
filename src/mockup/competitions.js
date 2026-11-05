@@ -1,3 +1,27 @@
+export const fanExperiencesData = {
+  pretitle: 'EXCLUSIVE FAN EXPERIENCES',
+  headlinePart1: 'Be Part of the',
+  headlinePart2: 'Excitement.',
+  subtitle: 'Discover supporter competitions, exciting giveaways and opportunities to get more involved with the Rangers community.',
+  cards: [
+    {
+      id: 'giveaway',
+      title: 'Rangers Fan Giveaway',
+      subtitle: 'Win exclusive fan merchandise.',
+      badge: 'Example Competition',
+      iconType: 'gift'
+    },
+    {
+      id: 'challenge',
+      title: 'Supporter Challenge',
+      subtitle: 'Take part in a fan challenge.',
+      badge: 'Example Competition',
+      iconType: 'trophy'
+    }
+  ],
+  cta: 'Explore Competitions'
+}
+
 export const competitionsData = {
   badge: 'Exclusive Supporter Giveaways',
   headline: 'PASSION DESERVES REWARDS.',
@@ -37,4 +61,3 @@ export const competitionsData = {
     }
   ]
 }
-
