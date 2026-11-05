@@ -31,7 +31,7 @@ export const footerData = {
     title: 'Get in Touch',
     items: [
       { id: 'contact', label: 'Contact Us', type: 'mail', modalTitle: 'Contact Us', modalDesc: 'Send a message to the FollowOn team.' },
-      { id: 'email', label: 'Email Placeholder', type: 'mail', modalTitle: 'Email Support', modalDesc: 'Reach our team directly at contact@followon.com' }
+      { id: 'email', label: 'support@followon.com', type: 'mail', email: 'support@followon.com' }
     ]
   },
   legalColumn: {
@@ -41,5 +41,9 @@ export const footerData = {
       { id: 'terms', label: 'Terms & Conditions', type: 'scale', modalTitle: 'Terms & Conditions', modalDesc: 'Community rules and platform terms of service.' }
     ]
   },
-  copyright: '© 2026 FollowOn. All rights reserved.'
+  copyright: '© 2026 FollowOn. All rights reserved.',
+  branding: {
+    label: 'Crafted by',
+    url: 'https://www.codes-inc.com/'
+  }
 }
