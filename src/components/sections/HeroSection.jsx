@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { heroData } from '../../mockup/hero'
-import { Button } from '../common/Button'
 import { SmoothLink } from '../common/SmoothLink'
-import { ArrowRightAnimatedIcon, CompassAnimatedIcon, FlameAnimatedIcon } from '../../icons'
+import { UsersAnimatedIcon } from '../../icons'
+import heroBg from '../../assets/heroBg.png'
+import shieldIcon from '../../assets/heroIcons (1).png'
+import chatIcon from '../../assets/heroIcons (2).png'
+import calendarIcon from '../../assets/heroIcons (1).jpg'
 
 export const HeroSection = ({ onOpenDemo }) => {
   const [sectionHovered, setSectionHovered] = useState(false)
@@ -13,149 +16,121 @@ export const HeroSection = ({ onOpenDemo }) => {
       id="hero"
       onMouseEnter={() => setSectionHovered(true)}
       onMouseLeave={() => setSectionHovered(false)}
-      className="relative min-h-screen flex flex-col justify-center pt-28 pb-16 overflow-hidden bg-navy-deep"
+      className="relative min-h-[640px] lg:min-h-[740px] flex flex-col justify-between pt-24 sm:pt-28 pb-6 sm:pb-8 overflow-hidden bg-white"
     >
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=2000&q=85"
-          alt="Stadium Atmosphere"
-          className="w-full h-full object-cover object-center opacity-25 scale-105 transition-transform duration-1000 ease-out"
+          src={heroBg}
+          alt="FollowOn Rangers Supporters Stadium"
+          className="w-full h-full object-cover object-right lg:object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/80 to-navy-deep/60" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-600/20 via-transparent to-transparent" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+        
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <div className="max-w-xl lg:max-w-2xl py-6 sm:py-10">
           <motion.div
-            initial={{ opacity: 0, y: -16 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/80 border border-blue-500/40 text-sky-400 text-xs sm:text-sm font-bold uppercase tracking-wider mb-6 shadow-lg shadow-blue-950/50"
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 mb-3 sm:mb-4"
           >
-            <span className="w-2 h-2 rounded-full bg-sky-400 animate-ping" />
-            <span>{heroData.badge}</span>
-            <span className="text-slate-400">•</span>
-            <span className="text-slate-300 font-medium">Glasgow & Worldwide</span>
+            <span className="w-1 h-4 bg-red-600 rounded-full shrink-0" />
+            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-primary">
+              {heroData.pretitle}
+            </span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white uppercase leading-[1.08] mb-6"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black tracking-tight text-slate-900 leading-[1.12] mb-5"
           >
-            {heroData.headlineLead}
-            <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-300 to-sky-200">
-              {heroData.headlineAccent}
+            {heroData.headlinePart1}
+            <span className="block text-primary">
+              {heroData.headlinePart2}
             </span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed mb-10"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed mb-8 max-w-lg"
           >
             {heroData.supportingCopy}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-14"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-wrap items-center gap-3 sm:gap-4"
           >
-            <Button
-              variant="primary"
-              size="lg"
-              icon={ArrowRightAnimatedIcon}
-              className="w-full sm:w-auto"
+            <button
+              type="button"
               onClick={() => onOpenDemo('Join FollowOn', 'Join thousands of supporters in the upcoming digital community launch.')}
+              className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-primary hover:bg-primary-dark text-white font-bold text-sm sm:text-base shadow-lg shadow-blue-600/30 transition-all duration-200 cursor-pointer active:scale-[0.98]"
             >
-              {heroData.primaryCta}
-            </Button>
+              <UsersAnimatedIcon isHovered={sectionHovered} size={18} className="text-white" />
+              <span>{heroData.primaryCta}</span>
+            </button>
 
             <SmoothLink targetId="about">
-              <Button
-                variant="outline"
-                size="lg"
-                icon={CompassAnimatedIcon}
-                className="w-full sm:w-auto"
+              <button
+                type="button"
+                className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-white hover:bg-blue-50/70 border-2 border-primary text-primary font-bold text-sm sm:text-base shadow-xs transition-all duration-200 cursor-pointer active:scale-[0.98]"
               >
-                {heroData.secondaryCta}
-              </Button>
+                <span className="text-xs">▷</span>
+                <span>{heroData.secondaryCta}</span>
+              </button>
             </SmoothLink>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="w-full p-4 sm:p-5 rounded-2xl bg-navy/80 border border-blue-500/20 backdrop-blur-md shadow-2xl mb-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-left"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-600/20 text-sky-400 border border-blue-500/30 shrink-0">
-                <FlameAnimatedIcon isHovered={sectionHovered} size={22} />
-              </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-black uppercase tracking-wider text-sky-400">
-                    {heroData.livePulse.title}
-                  </span>
-                  <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-[10px] font-bold text-emerald-400">
-                    {heroData.livePulse.status}
-                  </span>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-200 font-medium">
-                  {heroData.livePulse.currentTopic}
-                </p>
-              </div>
-            </div>
-
-            <SmoothLink targetId="community">
-              <span className="text-xs font-bold text-sky-400 hover:text-sky-300 uppercase tracking-wider flex items-center gap-1">
-                Enter Forum <ArrowRightAnimatedIcon isHovered={sectionHovered} size={14} />
-              </span>
-            </SmoothLink>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full"
-          >
-            {heroData.stats.map((stat, i) => (
-              <div
-                key={i}
-                className="p-4 sm:p-5 rounded-2xl bg-navy/60 border border-blue-500/20 backdrop-blur-sm text-center transition-all duration-300 hover:border-blue-400/50 hover:bg-navy/80"
-              >
-                <div className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-sky-400 mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-[11px] text-slate-400">
-                  {stat.change}
-                </div>
-              </div>
-            ))}
           </motion.div>
         </div>
       </div>
 
-      <div className="relative z-10 flex justify-center mt-12">
-        <SmoothLink targetId="about" className="flex flex-col items-center text-slate-400 hover:text-sky-400 transition-colors">
-          <span className="text-[10px] font-bold uppercase tracking-widest mb-2">Scroll To Explore</span>
-          <div className="w-5 h-8 rounded-full border-2 border-slate-500/50 flex items-start justify-center p-1">
-            <div className="w-1.5 h-2 rounded-full bg-sky-400 animate-bounce" />
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 mt-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="bg-white rounded-2xl shadow-xl shadow-slate-900/8 border border-slate-100 p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2 items-center"
+        >
+          <div className="flex items-center justify-center sm:justify-start gap-3 sm:px-4">
+            <img
+              src={shieldIcon}
+              alt="One Club. One Community."
+              className="w-8 h-8 sm:w-9 sm:h-9 object-contain shrink-0"
+            />
+            <span className="text-xs sm:text-sm md:text-base font-semibold text-slate-900">
+              {heroData.highlights[0].title}
+            </span>
           </div>
-        </SmoothLink>
+
+          <div className="flex items-center justify-center sm:justify-start gap-3 sm:px-4 sm:border-l border-slate-200">
+            <img
+              src={chatIcon}
+              alt="Real Fan Opinions"
+              className="w-8 h-8 sm:w-9 sm:h-9 object-contain shrink-0"
+            />
+            <span className="text-xs sm:text-sm md:text-base font-semibold text-slate-900">
+              {heroData.highlights[1].title}
+            </span>
+          </div>
+
+          <div className="flex items-center justify-center sm:justify-start gap-3 sm:px-4 sm:border-l border-slate-200">
+            <img
+              src={calendarIcon}
+              alt="Matchday Conversations"
+              className="w-8 h-8 sm:w-9 sm:h-9 object-contain shrink-0"
+            />
+            <span className="text-xs sm:text-sm md:text-base font-semibold text-slate-900">
+              {heroData.highlights[2].title}
+            </span>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
 }
-
