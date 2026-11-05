@@ -108,7 +108,7 @@ export const QuizzesSection = ({ onOpenDemo }) => {
                 </span>
               </div>
 
-              <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight mb-1 tracking-tight group-hover:text-primary transition-colors">
+              <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight mb-1 tracking-tight group-hover:text-primary transition-colors font-semibold">
                 {fanExperiencesData.cards[0].title}
               </h3>
 
@@ -162,7 +162,7 @@ export const QuizzesSection = ({ onOpenDemo }) => {
                 </span>
               </div>
 
-              <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight mb-1 tracking-tight group-hover:text-primary transition-colors">
+              <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight mb-1 tracking-tight group-hover:text-primary transition-colors font-semibold">
                 {fanExperiencesData.cards[1].title}
               </h3>
 

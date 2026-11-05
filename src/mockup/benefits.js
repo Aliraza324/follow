@@ -1,3 +1,36 @@
+export const whyJoinData = {
+  pretitle: 'WHY JOIN FOLLOWON?',
+  headlinePart1: 'More Ways to Be Part of',
+  headlinePart2: 'the Game.',
+  subtitle: 'Whether it’s sharing an opinion, joining a debate or testing your football knowledge, FollowOn gives every supporter a place to participate.',
+  cards: [
+    {
+      id: 'connect',
+      title: 'Connect with Fans',
+      description: 'Meet and connect with fellow Rangers supporters.',
+      iconType: 'users'
+    },
+    {
+      id: 'voice',
+      title: 'Share Your Voice',
+      description: 'Express your opinions and join football debates.',
+      iconType: 'chat'
+    },
+    {
+      id: 'challenges',
+      title: 'Take on Challenges',
+      description: 'Enjoy quizzes, predictions and competitions.',
+      iconType: 'trophy'
+    },
+    {
+      id: 'recognition',
+      title: 'Earn Recognition',
+      description: 'See your name rise through community rankings.',
+      iconType: 'medal'
+    }
+  ]
+}
+
 export const benefitsData = {
   badge: 'Why Join FollowOn',
   headline: 'YOUR COMMUNITY. YOUR GAME. YOUR VOICE.',
@@ -37,4 +70,3 @@ export const benefitsData = {
     }
   ]
 }
-
