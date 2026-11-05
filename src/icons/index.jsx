@@ -87,3 +87,5 @@ export const CloseAnimatedIcon = ({ isHovered, size = 24, className = '' }) => (
   <AnimatedIconWrapper icon={XIcon} isHovered={isHovered} size={size} className={className} />
 )
 
+export { TrophyAnimatedIcon } from './TrophyAnimatedIcon'
+

@@ -1,103 +1,125 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { aboutData } from '../../mockup/about'
-import { SectionHeading } from '../common/SectionHeading'
-import { UsersAnimatedIcon, MessageAnimatedIcon, SparklesAnimatedIcon, ShieldAnimatedIcon } from '../../icons'
+import { UsersAnimatedIcon, MessageAnimatedIcon, TrophyAnimatedIcon } from '../../icons'
+import aboutImage from '../../assets/Gemini_Generated_Image_6lzt7r6lzt7r6lzt.jpg'
 
 export const AboutSection = () => {
   const [hoveredCard, setHoveredCard] = useState(null)
 
-  const pillarIcons = {
+  const iconMap = {
     connect: UsersAnimatedIcon,
     discuss: MessageAnimatedIcon,
-    participate: SparklesAnimatedIcon
+    participate: TrophyAnimatedIcon
   }
 
   return (
-    <section id="about" className="py-24 bg-navy relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+    <section id="about" className="py-20 sm:py-24 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="lg:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 mb-3 sm:mb-4"
+            >
+              <span className="w-1 h-4 bg-red-600 rounded-full shrink-0" />
+              <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-primary">
+                {aboutData.pretitle}
+              </span>
+            </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <SectionHeading
-          badge={aboutData.badge}
-          headline={aboutData.headline}
-          description={aboutData.description}
-        />
+            <motion.h2
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-3xl sm:text-4xl lg:text-[46px] font-black tracking-tight leading-[1.14] text-slate-900 mb-6"
+            >
+              {aboutData.headlinePart1}{' '}
+              <span className="text-primary">
+                {aboutData.headlinePart2}
+              </span>
+            </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden border border-blue-500/30 shadow-2xl shadow-navy-deep group">
-              <img
-                src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=85"
-                alt="Supporters passion"
-                className="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/40 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-navy/90 backdrop-blur-md border border-blue-500/30">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2 rounded-xl bg-blue-600/30 text-sky-400">
-                    <ShieldAnimatedIcon isHovered={hoveredCard === 'quote'} size={20} />
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-sm sm:text-base text-slate-700 font-semibold mb-3 leading-relaxed"
+            >
+              {aboutData.paragraph1}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="text-sm sm:text-base text-slate-500 font-normal mb-8 sm:mb-10 leading-relaxed"
+            >
+              {aboutData.paragraph2}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4"
+            >
+              {aboutData.pillars.map((pillar) => {
+                const IconComp = iconMap[pillar.id] || UsersAnimatedIcon
+                const isHovered = hoveredCard === pillar.id
+
+                return (
+                  <div
+                    key={pillar.id}
+                    onMouseEnter={() => setHoveredCard(pillar.id)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                    className="p-4 sm:p-5 rounded-2xl bg-blue-50/70 hover:bg-blue-50 border border-blue-100/90 text-center flex flex-col items-center transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-default group"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white mb-3 shadow-md shadow-blue-600/25 group-hover:scale-105 transition-transform duration-300">
+                      <IconComp isHovered={isHovered} size={22} className="text-white" />
+                    </div>
+
+                    <h4 className="text-base font-semibold font-black text-slate-900 mb-1">
+                      {pillar.title}
+                    </h4>
+
+                    <p className="text-xs text-slate-500 font-medium leading-relaxed">
+                      {pillar.description}
+                    </p>
                   </div>
-                  <span className="text-xs font-black tracking-widest uppercase text-sky-300">
-                    Heritage & Pride
-                  </span>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-200 font-medium italic leading-relaxed">
-                  "{aboutData.quote.text}"
-                </p>
-              </div>
-            </div>
+                )
+              })}
+            </motion.div>
           </div>
 
-          <div className="lg:col-span-7 flex flex-col gap-5">
-            {aboutData.pillars.map((pillar) => {
-              const IconComp = pillarIcons[pillar.id] || UsersAnimatedIcon
-              const isCardHovered = hoveredCard === pillar.id
+          <div className="lg:col-span-5 relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative p-2"
+            >
+              
 
-              return (
-                <div
-                  key={pillar.id}
-                  onMouseEnter={() => setHoveredCard(pillar.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                  className={`p-6 rounded-2xl transition-all duration-300 border ${
-                    isCardHovered
-                      ? 'bg-blue-950/60 border-blue-400 shadow-xl shadow-blue-950/40 translate-x-1.5'
-                      : 'bg-navy-deep/80 border-blue-500/20 hover:border-blue-500/40'
-                  }`}
-                >
-                  <div className="flex items-start gap-4 sm:gap-5">
-                    <div className={`p-3.5 rounded-xl border transition-all duration-300 ${
-                      isCardHovered
-                        ? 'bg-primary text-white border-sky-400 shadow-lg shadow-blue-600/40 scale-105'
-                        : 'bg-blue-950/80 text-sky-400 border-blue-500/30'
-                    }`}>
-                      <IconComp isHovered={isCardHovered} size={26} />
-                    </div>
-
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
-                        <h3 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-white">
-                          {pillar.title}
-                        </h3>
-                        <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-sky-300 border border-blue-500/20">
-                          {pillar.metric}
-                        </span>
-                      </div>
-                      <h4 className="text-xs sm:text-sm font-semibold text-sky-400 mb-2">
-                        {pillar.subtitle}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                        {pillar.detail}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
+              <div className="relative">
+                <img
+                  src={aboutImage}
+                  alt="Rangers Celebration"
+                  className="w-full h-auto object-cover "
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
     </section>
   )
 }
-
