@@ -44,7 +44,7 @@ export const Home = () => {
         <HeroSection onOpenDemo={handleOpenDemo} />
         <AboutSection />
         <CommunityFeed onOpenDemo={handleOpenDemo} />
-        <PollsSection />
+        <PollsSection onOpenDemo={handleOpenDemo} />
         <PlayerRatings />
         <QuizzesSection />
         <CompetitionsSection onOpenDemo={handleOpenDemo} />
