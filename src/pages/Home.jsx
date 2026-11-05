@@ -10,6 +10,7 @@ import { CompetitionsSection } from '../components/sections/CompetitionsSection'
 import { LeaderboardSection } from '../components/sections/LeaderboardSection'
 import { Footer } from '../components/layout/Footer'
 import { DemoModal } from '../components/common/DemoModal'
+import { AppLoader } from '../components/common/AppLoader'
 
 export const Home = () => {
   const [modalState, setModalState] = useState({
@@ -36,6 +37,7 @@ export const Home = () => {
 
   return (
     <div className="min-h-screen bg-navy-deep text-white flex flex-col selection:bg-blue-600 selection:text-white">
+      <AppLoader />
       <Header onOpenDemo={handleOpenDemo} />
 
       <main className="flex-1">
