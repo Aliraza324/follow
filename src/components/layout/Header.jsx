@@ -2,20 +2,17 @@ import { useState, useEffect } from 'react'
 import { navigationData } from '../../mockup/navigation'
 import { BrandLogo } from '../common/BrandLogo'
 import { SmoothLink } from '../common/SmoothLink'
-import { Button } from '../common/Button'
-import { MenuAnimatedIcon, CloseAnimatedIcon, ArrowRightAnimatedIcon } from '../../icons'
+import { UsersAnimatedIcon, MenuAnimatedIcon, CloseAnimatedIcon } from '../../icons'
 
 export const Header = ({ onOpenDemo }) => {
-  const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [menuButtonHovered, setMenuButtonHovered] = useState(false)
+  const [joinHovered, setJoinHovered] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30)
-
-      const sectionIds = navigationData.links.map(l => l.id)
+      const sectionIds = navigationData.links.map((l) => l.id)
       for (const id of sectionIds) {
         const el = document.getElementById(id)
         if (el) {
@@ -33,20 +30,16 @@ export const Header = ({ onOpenDemo }) => {
   }, [])
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? 'bg-navy-deep/95 backdrop-blur-md border-b border-blue-500/20 shadow-xl shadow-navy-deep/60 py-3'
-          : 'bg-transparent py-5'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-slate-200 shadow-xs transition-all duration-200 py-2.5 sm:py-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          <SmoothLink targetId="hero">
-            <BrandLogo />
-          </SmoothLink>
+        <div className="relative flex items-center justify-between">
+          <div className="flex items-center shrink-0">
+            <SmoothLink targetId="hero" className="flex items-center">
+              <BrandLogo />
+            </SmoothLink>
+          </div>
 
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <nav className="hidden md:flex items-center gap-7 lg:gap-9 absolute left-1/2 -translate-x-1/2">
             {navigationData.links.map((link) => {
               const isActive = activeSection === link.id
               return (
@@ -54,49 +47,57 @@ export const Header = ({ onOpenDemo }) => {
                   key={link.id}
                   targetId={link.id}
                   active={isActive}
-                  className={`px-3 py-1.5 rounded-lg text-xs xl:text-sm font-semibold tracking-wide uppercase transition-colors ${
-                    isActive
-                      ? 'text-sky-400 bg-blue-950/60 border border-blue-500/30'
-                      : 'text-slate-300 hover:text-white hover:bg-white/5'
+                  className={`group relative py-2 text-sm tracking-normal font-semibold transition-colors duration-200 cursor-pointer ${
+                    isActive ? 'text-primary font-bold' : 'text-slate-700 hover:text-primary'
                   }`}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  <span
+                    className={`absolute bottom-0 left-0 right-0 h-[2.5px] bg-primary rounded-full transition-all duration-200 ${
+                      isActive
+                        ? 'w-full opacity-100'
+                        : 'w-0 group-hover:w-full opacity-0 group-hover:opacity-100'
+                    }`}
+                  />
                 </SmoothLink>
               )
             })}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => onOpenDemo('Sign In', 'Sign-in portal for verified Rangers supporters. Access community polls, rankings, and matchday rooms.')}
+          <div className="hidden sm:flex items-center gap-3 shrink-0">
+            <button
+              type="button"
+              onClick={() => onOpenDemo('Log In', 'Sign-in portal for verified Rangers supporters.')}
+              className="px-5 py-2 rounded-xl text-sm font-bold text-primary bg-white border border-blue-600 hover:bg-blue-50/60 transition-all duration-200 cursor-pointer shadow-xs active:scale-[0.98]"
             >
               {navigationData.actions.login}
-            </Button>
-            <Button
-              variant="primary"
-              size="sm"
-              icon={ArrowRightAnimatedIcon}
-              onClick={() => onOpenDemo('Join FollowOn Community', 'Welcome to the supporters community preview. Complete access will launch ahead of the new season.')}
+            </button>
+
+            <button
+              type="button"
+              onMouseEnter={() => setJoinHovered(true)}
+              onMouseLeave={() => setJoinHovered(false)}
+              onClick={() => onOpenDemo('Join FollowOn Community', 'Welcome to the supporters community preview.')}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-primary hover:bg-primary-dark transition-all duration-200 cursor-pointer shadow-md shadow-blue-600/25 active:scale-[0.98]"
             >
-              {navigationData.actions.join}
-            </Button>
+              <UsersAnimatedIcon isHovered={joinHovered} size={18} className="text-white" />
+              <span>{navigationData.actions.join}</span>
+            </button>
           </div>
 
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex sm:hidden items-center gap-2">
             <button
               type="button"
               aria-label="Toggle Navigation Menu"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               onMouseEnter={() => setMenuButtonHovered(true)}
               onMouseLeave={() => setMenuButtonHovered(false)}
-              className="p-2 rounded-xl text-slate-200 bg-navy border border-blue-500/30 hover:border-blue-400 transition-colors cursor-pointer"
+              className="p-2 rounded-xl text-slate-700 bg-slate-50 border border-slate-200 hover:bg-slate-100 transition-colors cursor-pointer"
             >
               {mobileMenuOpen ? (
-                <CloseAnimatedIcon isHovered={menuButtonHovered} size={22} />
+                <CloseAnimatedIcon isHovered={menuButtonHovered} size={22} className="text-slate-700" />
               ) : (
-                <MenuAnimatedIcon isHovered={menuButtonHovered} size={22} />
+                <MenuAnimatedIcon isHovered={menuButtonHovered} size={22} className="text-slate-700" />
               )}
             </button>
           </div>
@@ -104,47 +105,49 @@ export const Header = ({ onOpenDemo }) => {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-navy-deep/98 backdrop-blur-xl border-b border-blue-500/30 px-6 py-6 animate-fadeIn">
+        <div className="sm:hidden bg-white border-b border-slate-200 shadow-xl px-6 py-5">
           <div className="flex flex-col gap-2">
-            {navigationData.links.map((link) => (
-              <SmoothLink
-                key={link.id}
-                targetId={link.id}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 px-3 rounded-lg text-sm font-bold uppercase tracking-wider ${
-                  activeSection === link.id
-                    ? 'text-sky-400 bg-blue-950/80 border border-blue-500/30'
-                    : 'text-slate-200 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                {link.label}
-              </SmoothLink>
-            ))}
+            {navigationData.links.map((link) => {
+              const isActive = activeSection === link.id
+              return (
+                <SmoothLink
+                  key={link.id}
+                  targetId={link.id}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`py-2 px-3 rounded-lg text-sm font-bold tracking-wide transition-colors ${
+                    isActive
+                      ? 'text-primary bg-blue-50/70 border-l-3 border-primary'
+                      : 'text-slate-700 hover:text-primary hover:bg-slate-50'
+                  }`}
+                >
+                  {link.label}
+                </SmoothLink>
+              )
+            })}
 
-            <div className="pt-4 mt-2 border-t border-blue-500/20 flex flex-col gap-2.5">
-              <Button
-                variant="secondary"
-                size="md"
-                className="w-full"
+            <div className="pt-4 mt-2 border-t border-slate-200 flex flex-col gap-2.5">
+              <button
+                type="button"
                 onClick={() => {
                   setMobileMenuOpen(false)
-                  onOpenDemo('Sign In', 'Sign-in portal for verified Rangers supporters.')
+                  onOpenDemo('Log In', 'Sign-in portal for verified Rangers supporters.')
                 }}
+                className="w-full py-2.5 rounded-xl text-sm font-bold text-primary bg-white border border-blue-600 hover:bg-blue-50/60 transition-colors cursor-pointer text-center"
               >
                 {navigationData.actions.login}
-              </Button>
-              <Button
-                variant="primary"
-                size="md"
-                className="w-full"
-                icon={ArrowRightAnimatedIcon}
+              </button>
+
+              <button
+                type="button"
                 onClick={() => {
                   setMobileMenuOpen(false)
                   onOpenDemo('Join FollowOn Community', 'Welcome to the supporters community preview.')
                 }}
+                className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold text-white bg-primary hover:bg-primary-dark transition-colors cursor-pointer text-center shadow-md shadow-blue-600/20"
               >
-                {navigationData.actions.join}
-              </Button>
+                <UsersAnimatedIcon isHovered={true} size={18} className="text-white" />
+                <span>{navigationData.actions.join}</span>
+              </button>
             </div>
           </div>
         </div>
@@ -152,4 +155,3 @@ export const Header = ({ onOpenDemo }) => {
     </header>
   )
 }
-

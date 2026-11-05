@@ -6,17 +6,13 @@ export const navigationData = {
   },
   links: [
     { id: 'hero', label: 'Home', href: '#hero' },
-    { id: 'about', label: 'About', href: '#about' },
+    { id: 'about', label: 'About Us', href: '#about' },
     { id: 'community', label: 'Community', href: '#community' },
-    { id: 'polls', label: 'Polls & Debates', href: '#polls' },
-    { id: 'ratings', label: 'Player Ratings', href: '#ratings' },
-    { id: 'quizzes', label: 'Quizzes', href: '#quizzes' },
-    { id: 'competitions', label: 'Competitions', href: '#competitions' },
+    { id: 'polls', label: 'Features', href: '#polls' },
     { id: 'leaderboard', label: 'Leaderboard', href: '#leaderboard' }
   ],
   actions: {
-    login: 'Sign In',
+    login: 'Log In',
     join: 'Join Community'
   }
 }
-
