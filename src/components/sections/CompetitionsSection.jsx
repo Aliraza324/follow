@@ -7,7 +7,7 @@ export const CompetitionsSection = () => {
   const [hoveredCard, setHoveredCard] = useState(null)
 
   return (
-    <section id="benefits" className="relative py-20 sm:py-24 lg:py-28 overflow-hidden bg-white">
+    <section id="benefits" className="relative pt-10 sm:pt-12 pb-16 sm:pb-20 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <motion.div

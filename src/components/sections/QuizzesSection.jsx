@@ -10,7 +10,7 @@ export const QuizzesSection = ({ onOpenDemo }) => {
   const [hoveredCard, setHoveredCard] = useState(null)
 
   return (
-    <section id="competitions" className="relative py-20 sm:py-24 lg:py-28 overflow-hidden bg-white">
+    <section id="competitions" className="relative pt-16 sm:pt-20 pb-10 sm:pb-12 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
           <motion.div
