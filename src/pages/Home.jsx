@@ -8,8 +8,6 @@ import { PlayerRatings } from '../components/sections/PlayerRatings'
 import { QuizzesSection } from '../components/sections/QuizzesSection'
 import { CompetitionsSection } from '../components/sections/CompetitionsSection'
 import { LeaderboardSection } from '../components/sections/LeaderboardSection'
-import { BenefitsSection } from '../components/sections/BenefitsSection'
-import { FinalCTA } from '../components/sections/FinalCTA'
 import { Footer } from '../components/layout/Footer'
 import { DemoModal } from '../components/common/DemoModal'
 
@@ -48,9 +46,8 @@ export const Home = () => {
         <PlayerRatings onOpenDemo={handleOpenDemo} />
         <QuizzesSection onOpenDemo={handleOpenDemo} />
         <CompetitionsSection onOpenDemo={handleOpenDemo} />
-        <LeaderboardSection />
-        <BenefitsSection />
-        <FinalCTA onOpenDemo={handleOpenDemo} />
+        <LeaderboardSection onOpenDemo={handleOpenDemo} />
+
       </main>
 
       <Footer onOpenDemo={handleOpenDemo} />

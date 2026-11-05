@@ -1,3 +1,11 @@
+export const joinBannerData = {
+  headlineLine1: 'Your Club. Your Community.',
+  headlineLine2: 'Your Voice.',
+  subtitle: 'Join fellow Rangers supporters and become part of the conversations, opinions and experiences that bring fans together.',
+  ctaText: 'Join FollowOn Today',
+  communityTagline: 'Be part of the Rangers supporters community.'
+}
+
 export const leaderboardData = {
   badge: 'Community Rankings',
   headline: 'CELEBRATE THE MOST PASSIONATE SUPPORTERS.',

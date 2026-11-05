@@ -1,86 +1,73 @@
 import { useState } from 'react'
-import { leaderboardData } from '../../mockup/leaderboard'
-import { SectionHeading } from '../common/SectionHeading'
-import { PodiumCard } from '../ui/PodiumCard'
-import { ChartAnimatedIcon } from '../../icons'
+import { motion } from 'framer-motion'
+import { joinBannerData } from '../../mockup/leaderboard'
+import { UsersAnimatedIcon, ArrowRightAnimatedIcon } from '../../icons'
+import bannerBg from '../../assets/Gemini_Generated_Image_6w7bk26w7bk26w7b.jpg'
 
-export const LeaderboardSection = () => {
-  const [rowHovered, setRowHovered] = useState(null)
+export const LeaderboardSection = ({ onOpenDemo }) => {
+  const [buttonHovered, setButtonHovered] = useState(false)
 
   return (
-    <section id="leaderboard" className="py-24 bg-navy relative overflow-hidden">
-      <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <SectionHeading
-          badge={leaderboardData.badge}
-          headline={leaderboardData.headline}
-          description={leaderboardData.description}
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 items-end">
-          <div className="order-2 md:order-1">
-            <PodiumCard supporter={leaderboardData.podium[1]} />
+    <section id="leaderboard" className="relative py-8 sm:py-12 overflow-hidden bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl shadow-blue-950/15 min-h-[195px] sm:min-h-[220px] flex items-center py-6 px-7 sm:py-7 sm:px-12"
+        >
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <img
+              src={bannerBg}
+              alt="Rangers Stadium Atmosphere"
+              className="w-full h-full object-cover object-right"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#003B80] via-[#003B80]/95 via-50% to-transparent hidden md:block" />
+            <div className="absolute inset-0 bg-[#003B80]/90 md:hidden" />
           </div>
-          <div className="order-1 md:order-2">
-            <PodiumCard supporter={leaderboardData.podium[0]} />
-          </div>
-          <div className="order-3 md:order-3">
-            <PodiumCard supporter={leaderboardData.podium[2]} />
-          </div>
-        </div>
 
-        <div className="rounded-2xl bg-navy-deep/90 border border-blue-500/20 overflow-hidden shadow-xl">
-          <div className="p-4 bg-blue-950/40 border-b border-blue-500/20 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-400">
-            <span>Rank & Supporter</span>
-            <div className="flex items-center gap-8 sm:gap-16">
-              <span className="hidden sm:inline">Accuracy</span>
-              <span>Points (XP)</span>
+          <div className="relative z-10 max-w-xl text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-[34px] font-black tracking-tight leading-[1.12] mb-2 text-white">
+              {joinBannerData.headlineLine1}
+              <span className="block mt-0.5">
+                {joinBannerData.headlineLine2}
+                <svg
+                  className="inline-block ml-3 h-2 sm:h-2.5 w-20 sm:w-26 text-red-600 fill-current -translate-y-1"
+                  viewBox="0 0 100 12"
+                  preserveAspectRatio="none"
+                >
+                  <path d="M0,8 Q50,0 100,6 Q50,4 0,8 Z" />
+                </svg>
+              </span>
+            </h2>
+
+            <p className="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed mb-4 sm:mb-5 max-w-lg">
+              {joinBannerData.subtitle}
+            </p>
+
+            <div className="flex items-center gap-3 sm:gap-4 flex-wrap sm:flex-nowrap">
+              <button
+                type="button"
+                onMouseEnter={() => setButtonHovered(true)}
+                onMouseLeave={() => setButtonHovered(false)}
+                onClick={() => onOpenDemo?.('Join FollowOn Today', 'Welcome to the Rangers supporters community!')}
+                className="inline-flex items-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-white hover:bg-slate-100 text-primary font-black text-xs sm:text-sm shadow-md transition-all duration-200 cursor-pointer active:scale-[0.98] shrink-0 font-semibold"
+              >
+                <UsersAnimatedIcon isHovered={buttonHovered} size={16} className="text-primary " />
+                <span>{joinBannerData.ctaText}</span>
+                <ArrowRightAnimatedIcon isHovered={buttonHovered} size={16} className="text-primary" />
+              </button>
+
+              <div className="hidden sm:block h-5 w-px bg-white/40 shrink-0" />
+
+              <span className="text-xs sm:text-sm font-bold text-white tracking-wide shrink-0 font-semibold">
+                {joinBannerData.communityTagline}
+              </span>
             </div>
           </div>
-
-          <div className="divide-y divide-blue-500/10">
-            {leaderboardData.rows.map((row) => {
-              const isHovered = rowHovered === row.rank
-              return (
-                <div
-                  key={row.rank}
-                  onMouseEnter={() => setRowHovered(row.rank)}
-                  onMouseLeave={() => setRowHovered(null)}
-                  className={`p-4 flex items-center justify-between transition-colors ${
-                    isHovered ? 'bg-blue-950/50' : 'hover:bg-blue-950/30'
-                  }`}
-                >
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <span className="w-7 h-7 rounded-lg bg-blue-950 border border-blue-500/30 text-sky-400 text-xs font-black flex items-center justify-center">
-                      #{row.rank}
-                    </span>
-                    <div>
-                      <h4 className="text-sm font-bold text-white">
-                        {row.username}
-                      </h4>
-                      <span className="text-[11px] text-slate-400">
-                        {row.tier} • {row.status}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-8 sm:gap-16">
-                    <span className="hidden sm:inline text-xs font-semibold text-slate-300">
-                      {row.accuracy}
-                    </span>
-                    <div className="flex items-center gap-1.5 text-sm font-black text-sky-400">
-                      <ChartAnimatedIcon isHovered={isHovered} size={14} />
-                      <span>{row.xp}</span>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
 }
-
